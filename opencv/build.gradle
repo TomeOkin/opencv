@@ -90,6 +90,7 @@
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'maven-publish'
 
 def openCVersionName = "4.5.5"
 def openCVersionCode = ((4 * 100 + 5) * 100 + 5) * 10 + 0
@@ -154,4 +155,33 @@ android {
 }
 
 dependencies {
+}
+
+afterEvaluate {
+    publishing {
+        // repositories {
+        //     maven {
+        //         // http://172.22.0.211:9001/repository/zx/
+        //         def releasesRepoUrl = "https://jitpack.io"
+        //         url = releasesRepoUrl
+        //
+        //         // credentials {
+        //         //     username = project.ext.getProperty("maven.username")
+        //         //     password = project.ext.getProperty("maven.password")
+        //         // }
+        //
+        //         allowInsecureProtocol true
+        //     }
+        // }
+
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.tomeokin'
+                artifactId = 'opencv'
+                version = '4.5.5'
+            }
+        }
+    }
 }

@@ -50,6 +50,7 @@ dependencies {
 
     // Remove/comment out the one you aren't going to need
     implementation(project(":opencv"))
+    // implementation 'com.github.TomeOkin:opencv:v0.1.0'
     // implementation(project(":opencv_VERSION"))
     // implementation(project(":opencv-contrib_VERSION"))
 }
